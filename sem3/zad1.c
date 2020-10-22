@@ -5,6 +5,7 @@ int main(int argc, char *argv[]){
 
 float x, y;
 
+
 x = atof(argv[1]);
 y=x*x;
 
