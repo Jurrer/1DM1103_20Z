@@ -37,7 +37,26 @@ int main (int argc, char *argv[])
     }
 //tworzę tabele na wynik
     float wynik[wiersze][kolumna];
- 
+    printf("Wczytana macierz A:\n");
+    for(int i = 0; i<wiersze; i++)
+        {
+            for(int j = 0; j < kolumny; j++)
+            printf("|%f|", macierz[i][j]);
+            printf("\n");
+        }
+    printf("\n");
+
+    printf("Oraz wczytany wektor X:\n");
+    for(int i = 0; i<wiersze_w; i++)
+        {
+            
+            for(int j = 0; j < kolumna; j++)
+            printf("|%f|", wektor[i][j]);
+            printf("\n");
+        }
+
+        printf("\n Po wymnożeniu ma %d wierszy\n", wiersze_w);
+        printf("I równa się:\n");
     if(kolumny == wiersze_w)
     {
         for(int i = 0; i<wiersze; i++)
@@ -50,7 +69,7 @@ int main (int argc, char *argv[])
             }
             }
         }   
-        for(int i = 0; i<wiersze; i++)
+        for(int i = 0; i < wiersze; i++)
         {
         for(int j = 0; j < kolumna; j++)
         {
