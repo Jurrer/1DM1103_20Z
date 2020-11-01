@@ -82,5 +82,5 @@ int main (int argc, char *argv[])
     {
         printf("Nie da się wymnożyć");
     }
-  
+  return 0;
 }
