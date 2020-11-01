@@ -4,14 +4,14 @@
 
 int main (int argc, char *argv[])
 {
-    FILE *fm = fopen("a.txt", "r");
-    FILE *fw = fopen("wekt.txt", "r");
+    FILE *fm = fopen(argv[1], "r");
+    FILE *fw = fopen(argv[2], "r");
 
     int kolumny;
     int wiersze;
     int wiersze_w;
     int kolumna;
-    
+    //wczytuje macierz
     fscanf(fm, "%d %d", &wiersze, &kolumny);
 
     float macierz[wiersze][kolumny];    
@@ -23,7 +23,7 @@ int main (int argc, char *argv[])
         fscanf(fm, "%f", &macierz[i][j]);
         }
     }
-    
+    //wczytuje wektor
     fscanf(fw, "%d %d", &wiersze_w, &kolumna);
 
     float wektor[wiersze_w][kolumna];    
@@ -32,31 +32,32 @@ int main (int argc, char *argv[])
     {
         for(int j = 0; j < kolumna; j++)
         {
-        fscanf(fm, "%f", &wektor[i][j]);
+        fscanf(fw, "%f", &wektor[i][j]);
         }
     }
-
+//tworzę tabele na wynik
     float wynik[wiersze][kolumna];
-
-printf("%d, %d, %d, %d\n", wiersze, kolumny, wiersze_w, kolumna);
-
+ 
     if(kolumny == wiersze_w)
     {
         for(int i = 0; i<wiersze; i++)
         {
             for(int j = 0; j < kolumna; j++)
             {    
-                wynik[i][j]=0;
                 for(int h = 0; h < wiersze_w; h++)
             {
                 wynik[i][j] = wynik[i][j] + (macierz[i][h]*wektor[h][j]);
             }
             }
-        }
+        }   
         for(int i = 0; i<wiersze; i++)
+        {
         for(int j = 0; j < kolumna; j++)
-        printf("%f ", wynik[i][j]);
+        {
+        printf("|%f|", wynik[i][j]);
         printf("\n");
+        }
+        }
     }
     else
     {
