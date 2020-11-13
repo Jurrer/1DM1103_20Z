@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 typedef struct _student {
     char imie[25];
     char nazwisko[50];
@@ -14,6 +15,7 @@ typedef struct _student {
 
 
 int wczytaj(student dane[100], char *fnazwa) {
+
     FILE * fin = fopen(fnazwa, "r");
     int cnt, i;
     char bufor[1024];
@@ -74,13 +76,13 @@ int znajdz(char *szukany_nr, char kod_przed[100][10], int n) {
 }
 
 
-int znajdz_przedmioty(char kod_przed[100][10], student dane[100], int n) {
+int znajdz_przedmioty(char nr_albumu[100][10], student dane[100], int n) {
     int ile_znalazlem = 0;
     int i;
 
     for (i=0; i <n; i++) {
-        if (znajdz(dane[i].kod_przed, kod_przed, ile_znalazlem) == -1) {
-            strncpy(kod_przed[ile_znalazlem], dane[i].kod_przed, 9);
+        if (znajdz(dane[i].kod_przed, nr_albumu, ile_znalazlem) == -1) {
+            strncpy(nr_albumu[ile_znalazlem], dane[i].kod_przed, 9);
             ile_znalazlem++;
             }
     }
@@ -169,7 +171,6 @@ void najlatwiejszy_p(student dane[100], int ile_rekordow) {
         srednie[i] = srednie[i]/ile_dod[i];
     }   
     
-
     //for (i=0;i<ile_przedmiotow; i++) 
     //    printf("Student [%d]: %s - %f:%d - %f \n", i+1, nr_albumow[i], 
     //    sumy_wazonych_ocen[i], sumy_ects[i], sumy_wazonych_ocen[i] / sumy_ects[i]);
